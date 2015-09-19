@@ -12,20 +12,8 @@ get_tmux_option() {
   fi
 }
 
-get_tmux_environment() {
-  local environment="$1"
-  local default_value="$2"
-  local environment_value=$(tmux show-environment -g "$environment" | cut -d= -f2)
-
-  if [[ $environment_value -eq 10 ]]; then
-    echo "$default_value"
-  else
-    echo "$environment_value"
-  fi
-}
-
 readonly man_key="$(get_tmux_option "@man-key" "m")"
-readonly man_len="$(get_tmux_environment "TMUX_MAN_LEN" "10")"
+readonly man_len="$(get_tmux_option "@man-len" "10")"
 
 tmux bind-key "$man_key" \
   command-prompt -p "Enter command:" "set-environment -g TMUX_MAN %%" \\\; \

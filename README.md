@@ -33,7 +33,7 @@ set-option -g @man-key 'x' # or your favorite key binding
 Default `split-window` length is 10. If you change this length, set the following line to your `~/.tmux.conf`.
 
 ```bash
-set-environment -g TMUX_MAN_LEN 15 # or your favorite length
+set-option -g @man-len 15 # or your favorite length
 ```
 
 # License
