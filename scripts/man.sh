@@ -1,14 +1,12 @@
 #!/usr/bin/env bash
 
 CURRENT_DIR="$(cd "$(dirname "$0")" && pwd)"
-source "${CURRENT_DIR}/scripts/helpers.sh"
+source "${CURRENT_DIR}/helpers.sh"
 
-readonly man_key="$(get_tmux_option "@man-key" "m")"
+readonly cmd="$1"
 readonly man_len="$(get_tmux_option "@man-len" "10")"
 
-tmux bind-key "$man_key" \
-  command-prompt -p "Enter command:" \
-  "run-shell '${CURRENT_DIR}/scripts/man.sh %%'"
+tmux split-window -l $man_len "man $cmd"
 
 # Local Variables:
 # mode: Shell-Script
