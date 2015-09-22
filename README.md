@@ -11,6 +11,7 @@ Just do man.
 
 * [tmux](https://tmux.github.io/)
 * [tpm](https://github.com/tmux-plugins/tpm)
+* bash >= 4.x
 
 # Install
 
