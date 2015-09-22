@@ -3,10 +3,22 @@
 CURRENT_DIR="$(cd "$(dirname "$0")" && pwd)"
 source "${CURRENT_DIR}/helpers.sh"
 
-readonly cmd="$1"
+readonly _cmd="$1"
+shift
+declare -A cmd_map
+
+cmd_map["m"]="man"
+cmd_map["a"]="ansible-doc"
+cmd_map["r"]="rfc"
+cmd_map["h"]="httpdoc"
+
 readonly man_len="$(get_tmux_option "@man-len" "10")"
 
-tmux split-window -l $man_len "man $cmd"
+if cmd_exists "${cmd_map["$_cmd"]}"; then
+  tmux split-window -l $man_len "${cmd_map["$_cmd"]} $@ | less -R"
+else
+  display_msg "${cmd_map["$_cmd"]} not found in your PATH."
+fi
 
 # Local Variables:
 # mode: Shell-Script
