@@ -37,6 +37,12 @@ Default `split-window` length is 10. If you change this length, set the followin
 set-option -g @man-len 15 # or your favorite length
 ```
 
+or
+
+```bash
+set-option -g @man-len 20% # if you like to keep things relative
+```
+
 # License
 
 MIT
