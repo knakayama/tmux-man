@@ -1,11 +1,11 @@
-tmux-mac
+tmux-man
 ========
 
 Search man from your tmux sesseion
 
 # Description
 
-Just do man.
+Prompts for a manual and opens it in a tmux split.
 
 # Requirements
 
@@ -21,17 +21,24 @@ Install tpm and add the following line to your `~/.tmux.conf`.
 set-option -g @plugin 'knakayama/tmux-man'
 ```
 
-then, press `Prefix + I` in tmux session.
+then, press `Prefix + I` in tmux session. When prompted select eg. `m man`. Available abbreviations are:
+
+| Abbr | Command     |
+| ---- | ----------- |
+| m    | man         |
+| a    | ansible-doc |
+| r    | rfc         |
+| h    | httpdoc     |
 
 # Usage
 
-Default key binding is `Prefix + m`. If you change this key binding, set the following line to your `~/.tmux.conf`.
+Default key binding is `Prefix + m`. If you want to change this key binding, set the following line in your `~/.tmux.conf`.
 
 ```bash
 set-option -g @man-key 'x' # or your favorite key binding
 ```
 
-Default `split-window` length is 10. If you change this length, set the following line to your `~/.tmux.conf`.
+Default `split-window` length is 10. If you want to change this length, set the following line in your `~/.tmux.conf`.
 
 ```bash
 set-option -g @man-len 15 # or your favorite length
