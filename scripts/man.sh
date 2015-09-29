@@ -18,6 +18,7 @@ cmd_map["h"]="httpdoc"
 
 readonly man_size="$(get_tmux_option "@man-size" "10")"
 readonly man_orientation="$(get_tmux_option "@man-orientation" "")"
+readonly shell_interactive="$(get_tmux_option "@man-shell-interactive" "off")"
 
 if [[ ! -z "$man_orientation" ]]; then
   orient="-$man_orientation"
@@ -30,7 +31,12 @@ else
 fi
 
 if cmd_exists "${cmd_map["$_cmd"]}"; then
-  tmux split-window $size $orient "${cmd_map["$_cmd"]} $@ | less -R"
+  if [[ "$shell_interactive" == "on" ]]; then
+    cmd="${SHELL} -i -c \\\"${cmd_map["$_cmd"]} $@\\\""
+  else
+    cmd="${cmd_map["$_cmd"]} $@ | less -R"
+  fi
+  tmux split-window $size $orient "eval $cmd"
 else
   display_msg "${cmd_map["$_cmd"]} not found in your PATH."
 fi
