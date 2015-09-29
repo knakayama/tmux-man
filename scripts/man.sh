@@ -12,10 +12,15 @@ cmd_map["a"]="ansible-doc"
 cmd_map["r"]="rfc"
 cmd_map["h"]="httpdoc"
 
-readonly man_len="$(get_tmux_option "@man-len" "10")"
+readonly man_size="$(get_tmux_option "@man-size" "10")"
+readonly man_orientation="$(get_tmux_option "@man-orientation" "")"
+
+if [[ ! -z "$man_orientation" ]]; then
+  orient="-$man_orientation"
+fi
 
 if cmd_exists "${cmd_map["$_cmd"]}"; then
-  tmux split-window -l $man_len "${cmd_map["$_cmd"]} $@ | less -R"
+  tmux split-window -l $man_size $orient "${cmd_map["$_cmd"]} $@ | less -R"
 else
   display_msg "${cmd_map["$_cmd"]} not found in your PATH."
 fi
