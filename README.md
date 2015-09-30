@@ -1,4 +1,4 @@
-tmux-mac
+tmux-man
 ========
 
 Search man from your tmux sesseion
