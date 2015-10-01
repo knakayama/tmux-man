@@ -38,10 +38,16 @@ Default key binding is `Prefix + m`. If you want to change this key binding, set
 set-option -g @man-key 'x' # or your favorite key binding
 ```
 
-Default `split-window` length is 10. If you want to change this length, set the following line in your `~/.tmux.conf`.
+Default `split-window` size is 10. If you want to change this size, set the following line to your `~/.tmux.conf`.
 
 ```bash
-set-option -g @man-len 15 # or your favorite length
+set-option -g @man-size 15 # or your favorite size
+```
+
+Default `split-window` orientation is vertical. If you want to change this orientation, set the following line in your `~/.tmux.conf`.
+
+```bash
+set-option -g @man-orientation 'h'
 ```
 
 # License
