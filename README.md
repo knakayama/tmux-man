@@ -56,6 +56,13 @@ Default `split-window` orientation is vertical. If you want to change this orien
 set-option -g @man-orientation 'h'
 ```
 
+As `man` runs in non-interactive shell your `.bashrc` or `.zshrc` settings are not loaded.
+If you want to load them (for you may have an alias for man set up), set the following line in your `~/.tmux.conf`.
+
+```bash
+set-option -g @man-shell-interactive 'on'
+```
+
 # License
 
 MIT
