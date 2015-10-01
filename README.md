@@ -70,3 +70,9 @@ MIT
 # Author
 
 [knakayama](https://github.com/knakayama)
+
+# Credits
+
+Thanks to:
+
+* Piotr Gaczkowski (@DoomHammer)
