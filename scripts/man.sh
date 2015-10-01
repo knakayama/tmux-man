@@ -3,6 +3,10 @@
 CURRENT_DIR="$(cd "$(dirname "$0")" && pwd)"
 source "${CURRENT_DIR}/helpers.sh"
 
+if [[ "$2" == "" ]]; then
+  set -- m $1
+fi
+
 readonly _cmd="$1"
 shift
 declare -A cmd_map
