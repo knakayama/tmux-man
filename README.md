@@ -31,7 +31,7 @@ Default key binding is `Prefix + m`. If you change this key binding, set the fol
 set-option -g @man-key 'x' # or your favorite key binding
 ```
 
-Default `split-window` size is 10. If you change this size, set the following line to your `~/.tmux.conf`.
+Default `split-window` size is 10. If you want to change this size, set the following line to your `~/.tmux.conf`.
 
 ```bash
 set-option -g @man-size 15 # or your favorite size
