@@ -44,6 +44,12 @@ Default `split-window` size is 10. If you want to change this size, set the foll
 set-option -g @man-size 15 # or your favorite size
 ```
 
+or
+
+```bash
+set-option -g @man-size 20% # if you like to keep things relative
+```
+
 Default `split-window` orientation is vertical. If you want to change this orientation, set the following line in your `~/.tmux.conf`.
 
 ```bash

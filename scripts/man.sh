@@ -23,8 +23,14 @@ if [[ ! -z "$man_orientation" ]]; then
   orient="-$man_orientation"
 fi
 
+if [[ "${man_size: -1}" == "%" ]]; then
+  size="-p ${man_size%\%}"
+else
+  size="-l ${man_size}"
+fi
+
 if cmd_exists "${cmd_map["$_cmd"]}"; then
-  tmux split-window -l $man_size $orient "${cmd_map["$_cmd"]} $@ | less -R"
+  tmux split-window $size $orient "${cmd_map["$_cmd"]} $@ | less -R"
 else
   display_msg "${cmd_map["$_cmd"]} not found in your PATH."
 fi
