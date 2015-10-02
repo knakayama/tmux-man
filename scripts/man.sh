@@ -38,7 +38,7 @@ if cmd_exists "${cmd_map["$_cmd"]}"; then
   fi
   tmux split-window $size $orient "eval $cmd"
 else
-  display_msg "${cmd_map["$_cmd"]} not found in your PATH."
+  display_msg "$_cmd not found in your PATH."
 fi
 
 # Local Variables:
